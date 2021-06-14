@@ -9,8 +9,4 @@ install:
 before_script:
   # - cp .env.example .env
   - python manage.py migrate
-# command to run tests
-# script:
-#   - pytest
-#   - python manage.py test --settings=parsifal.test_settings
 sudo: false
