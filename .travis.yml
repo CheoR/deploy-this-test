@@ -16,3 +16,5 @@ before_script:
   - psql -c "CREATE USER foo WITH PASSWORD 'bar';" -U postgres
   - python manage.py makemigrations
   - python manage.py migrate
+script:
+  - python mange.py test

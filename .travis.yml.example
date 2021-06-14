@@ -13,4 +13,3 @@ before_script:
 # script:
 #   - pytest
 #   - python manage.py test --settings=parsifal.test_settings
-sudo: false
