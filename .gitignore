@@ -250,11 +250,12 @@ sketch
 # For this project #
 ####################
 *.rst
-# *.jpg
+*.jpg
 *.png
 *.gif
 *.xap
-# *.jpeg
+*.jpeg
+*.pdf
 project_notes.md
 .vscode/
 
