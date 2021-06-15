@@ -19,9 +19,3 @@ before_script:
 script:
   - python manage.py test
   # - python manage.py test tests.db_test
-deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  app: deploy-this-test
-  run: python manage.py migrate
-  on: main
