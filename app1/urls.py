@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .import views
+from .views import index
 
 urlpatterns = [
     # By assigning the url a name you can use this value
@@ -7,7 +7,7 @@ urlpatterns = [
     #  which means any future changes made to the url path,
     #  automatically updates all url definitions in view
     #  methods and templates.
-    url(r'^$', views.index, name='index'),
+    url(r'^$', index, name='index'),
 ]
 
 # Application namespaces of included URLconfs 
