@@ -8,6 +8,11 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 python-decouple = "*"
+autopep8 = "*"
+pylint = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+pylint-django = "*"
 
 [dev-packages]
 
