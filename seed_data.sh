@@ -1,10 +1,18 @@
 #!/bin/bash
 
+# Note: This is only after you already have created your db, ran migations, migrate and filled it with data.
+# If you need to create fixtures, you can do something like
+#
+# $ python3 manage.py dumpdata app1.service --indent 2 > data/fixtures/services.json
+#
+# Where app1 is the app name.
+#
 # Script clears tables from the postgreql db.
 # Then recreates the migrations and migrates to db.
 # Then loads your data into the tables with fixtures.
 #
-# tablesArray - array of tabes to drop
+# appName - rename to your app
+# tablesToDropArray - array of tabes to drop
 # fixturesArray - array of fixtures to load
 # -e enables interpretation of backslash escapes
 #
@@ -20,20 +28,18 @@
 # python manage.py loaddata product_category
 
 
-# Scipt will only apply to this app
 appName="app1"
 pathToFixtures="data/fixtures"
 
-
-declare -a tablesArray=($appName "authtoken" "auth" )
-declare -a fixturesArray=("users" "tokens" "appusers")
+declare -a tablesToDropArray=($appName authtoken auth)
+declare -a fixturesArray=(users tokens appusers services vessels voyages carriers ports documents dues bkgstatuses cntrstatuses containers products bookings)
 
 
 echo -e '\n==============='
 echo 'Dropping tables'
 echo '==============='
 
-for val in ${tablesArray[@]}; do
+for val in ${tablesToDropArray[@]}; do
    echo -e "\n*************"
    echo "Dropping $val"
    echo "*************"
@@ -57,7 +63,6 @@ echo -e '\n==============='
 echo 'Running migrate'
 echo '==============='
 python3 manage.py migrate
-
 
 
 echo -e '\n================'
